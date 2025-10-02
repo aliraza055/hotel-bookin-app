@@ -28,7 +28,7 @@ class MyWidget extends StatefulWidget {
   State<MyWidget> createState() => _MyWidgetState();
 }
 
-//commnet of changes
+// add  new comment
 class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
