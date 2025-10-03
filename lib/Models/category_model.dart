@@ -6,7 +6,7 @@ class CategoryModel {
     return {'name': name, 'images': images};
   }
 
-  static List getRoomData() {
+  static List categoryData() {
     return [
       CategoryModel(
         name: 'Room',
@@ -34,5 +34,12 @@ class CategoryModel {
             "https://res.cloudinary.com/dhob4di7g/image/upload/v1755949317/apartment_-_Copy_-_Copy_xpuxk5.png",
       ),
     ];
+  }
+
+  void sendData()async {
+    final category = CategoryModel.categoryData();
+    for (var i in category) {
+await FirebaseFire
+    }
   }
 }
