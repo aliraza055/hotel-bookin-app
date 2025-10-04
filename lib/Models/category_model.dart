@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:random_string/random_string.dart';
+
 class CategoryModel {
   String name;
   String images;
@@ -6,7 +9,7 @@ class CategoryModel {
     return {'name': name, 'images': images};
   }
 
-  static List categoryData() {
+  static List<CategoryModel> categoryData() {
     return [
       CategoryModel(
         name: 'Room',
@@ -35,11 +38,17 @@ class CategoryModel {
       ),
     ];
   }
+}
 
-  void sendData()async {
-    final category = CategoryModel.categoryData();
-    for (var i in category) {
-await FirebaseFire
+class SendData {
+  Future<void> sendData() async {
+    final categories = CategoryModel.categoryData();
+    for (var category in categories) {
+      String id = randomAlphaNumeric(10);
+      await FirebaseFirestore.instance
+          .collection('catagories')
+          .doc(id)
+          .set(category.toMap());
     }
   }
 }

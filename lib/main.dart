@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:doctor_app/Models/category_model.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +36,20 @@ class _MyWidgetState extends State<MyWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true, backgroundColor: Colors.yellow),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: FloatingActionButton(
+              child: Center(child: Text('send  Data')),
+              onPressed: () async {
+                await SendData().sendData();
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
