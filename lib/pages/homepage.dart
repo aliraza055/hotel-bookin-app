@@ -25,9 +25,6 @@ class _HomepageState extends State<Homepage> {
                       borderRadius: BorderRadius.circular(30),
                       color: Colors.white,
                     ),
-                    // child: TextField(
-                    //   decoration: InputDecoration(border: InputBorder.none),
-                    // ),
                   ),
                 ),
                 Container(
