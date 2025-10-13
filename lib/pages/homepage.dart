@@ -19,21 +19,32 @@ class _HomepageState extends State<Homepage> {
               children: [
                 Expanded(
                   child: Container(
-                    height: 60,
-                    width: MediaQuery.of(context).size.width / 2,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
                       color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(blurRadius: 7, color: Colors.black38),
+                      ],
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Search...",
+                        ),
+                      ),
                     ),
                   ),
                 ),
+                const SizedBox(width: 8),
                 Container(
-                  height: 60,
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black38),
                     shape: BoxShape.circle,
-                    color: Colors.red,
                   ),
-                  child: Icon(Icons.ac_unit_outlined),
+                  child: const Icon(Icons.tune),
                 ),
               ],
             ),
