@@ -65,10 +65,16 @@ class _HomepageState extends State<Homepage> {
                       itemCount: items.length,
                       itemBuilder: (context, index) {
                         return Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 10,
+                          ),
                           margin: EdgeInsets.only(left: 10),
-                          height: 60,
-                          width: 80,
-                          decoration: BoxDecoration(color: Colors.white),
+
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.amber,
+                          ),
                           child: Column(
                             children: [
                               Image.network(items[index]['images'], height: 40),
