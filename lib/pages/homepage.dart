@@ -9,6 +9,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,34 +60,73 @@ class _HomepageState extends State<Homepage> {
                 if (snapshot.hasData) {
                   final items = snapshot.data!.docs;
                   return SizedBox(
-                    height: 80,
+                    height: 100, // kam height rakhi
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: items.length,
                       itemBuilder: (context, index) {
-                        return Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 10,
-                          ),
-                          margin: EdgeInsets.only(left: 10),
-
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Colors.amber,
-                          ),
-                          child: Column(
-                            children: [
-                              Image.network(items[index]['images'], height: 40),
-                              Text(items[index]['name']),
-                            ],
+                        final category = items[index];
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(
+                              left: 12,
+                              right: 4,
+                              bottom: 8,
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 10,
+                            ),
+                            decoration: BoxDecoration(
+                              color: selectedIndex == index
+                                  ? Colors.orange.withOpacity(0.9)
+                                  : Colors.white,
+                              borderRadius: BorderRadius.circular(16),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.15),
+                                  spreadRadius: 2,
+                                  blurRadius: 6,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                // image
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: Image.network(
+                                    category['images'],
+                                    height: 45,
+                                    width: 45,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                const SizedBox(height: 6),
+                                // name
+                                Text(
+                                  category['name'],
+                                  style: const TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       },
                     ),
                   );
                 }
-                return Text('no data found!');
+                return const Center(child: CircularProgressIndicator());
               },
             ),
           ],
