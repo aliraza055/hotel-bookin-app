@@ -57,6 +57,9 @@ class _HomepageState extends State<Homepage> {
                   .collection('catagories')
                   .snapshots(),
               builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  print(snapshot.error);
+                }
                 if (snapshot.hasData) {
                   final items = snapshot.data!.docs;
                   return SizedBox(
