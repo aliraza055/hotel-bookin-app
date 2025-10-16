@@ -17,16 +17,25 @@ class _BottomNavigatonState extends State<BottomNavigaton> {
     return Scaffold(
       body: pages[index],
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.black,
+        currentIndex: index,
+        //  type: BottomNavigationBarType.fixed,
+        selectedFontSize: 16,
+        //  backgroundColor: Colors.white,
         onTap: (value) {
           setState(() {
-            value = index;
+            index = value;
           });
         },
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home)),
-          BottomNavigationBarItem(icon: Icon(Icons.portable_wifi_off_outlined)),
-          BottomNavigationBarItem(icon: Icon(Icons.man)),
-          BottomNavigationBarItem(icon: Icon(Icons.person_off_rounded)),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'favorite',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'serach'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
         ],
       ),
     );
