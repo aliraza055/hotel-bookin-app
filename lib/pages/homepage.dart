@@ -60,6 +60,7 @@ class _HomepageState extends State<Homepage> {
                 if (snapshot.hasError) {
                   print(snapshot.error);
                 }
+                
                 if (snapshot.hasData) {
                   final items = snapshot.data!.docs;
                   return SizedBox(

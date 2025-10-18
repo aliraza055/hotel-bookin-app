@@ -1,4 +1,3 @@
-import 'package:doctor_app/Models/category_model.dart';
 import 'package:doctor_app/Models/item_model.dart';
 import 'package:doctor_app/pages/bottom_navigaton.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Flutter Demo', home: const MyWidget());
+    return MaterialApp(title: 'Flutter Demo', home: const BottomNavigaton());
   }
 }
 
