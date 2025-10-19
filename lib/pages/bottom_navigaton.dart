@@ -23,7 +23,6 @@ class _BottomNavigatonState extends State<BottomNavigaton> {
           selectedItemColor: Colors.blue,
           unselectedItemColor: Colors.black,
           currentIndex: index,
-          //type: BottomNavigationBarType.fixed,
           selectedFontSize: 16,
           backgroundColor: Colors.amber,
           onTap: (value) {

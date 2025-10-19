@@ -124,7 +124,6 @@ class Items {
           'https://res.cloudinary.com/dhob4di7g/image/upload/v1760718504/pexels-pixabay-271624_nzpflp.jpg',
         ],
       ),
-
       Items(
         title: "Beachside resort with private pool",
         isActive: true,
