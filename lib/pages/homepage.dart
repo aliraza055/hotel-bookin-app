@@ -9,6 +9,12 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  final List<String> images = [
+    'https://via.placeholder.com/400x300?text=Image+1',
+    'https://via.placeholder.com/400x300?text=Image+2',
+    'https://via.placeholder.com/400x300?text=Image+3',
+    'https://via.placeholder.com/400x300?text=Image+4',
+  ];
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -60,7 +66,7 @@ class _HomepageState extends State<Homepage> {
                 if (snapshot.hasError) {
                   print(snapshot.error);
                 }
-                
+
                 if (snapshot.hasData) {
                   final items = snapshot.data!.docs;
                   return SizedBox(
