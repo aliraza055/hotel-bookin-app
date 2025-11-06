@@ -1,5 +1,6 @@
 import 'package:doctor_app/pages/favourite_item.dart';
 import 'package:doctor_app/pages/homepage.dart';
+import 'package:doctor_app/pages/self.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigaton extends StatefulWidget {
@@ -11,7 +12,7 @@ class BottomNavigaton extends StatefulWidget {
 
 class _BottomNavigatonState extends State<BottomNavigaton> {
   int index = 0;
-  List pages = [Homepage(), FavouriteItem(), Homepage(), FavouriteItem()];
+  List pages = [Homepage(), FavouriteItem(), ImageSlider(), FavouriteItem()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
