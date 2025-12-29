@@ -18,7 +18,7 @@ class _BottomNavigatonState extends State<BottomNavigaton> {
     return Scaffold(
       body: pages[index],
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(color: Colors.amber),
+        decoration: BoxDecoration(color: Colors.yellowAccent),
         margin: EdgeInsets.all(12),
         child: BottomNavigationBar(
           selectedItemColor: Colors.blue,
