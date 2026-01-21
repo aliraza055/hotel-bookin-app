@@ -158,7 +158,6 @@ class _HomepageState extends State<Homepage> {
 
               const SizedBox(height: 10),
 
-              // 🔹 Expanded ListView for Items
               Expanded(
                 child: StreamBuilder(
                   stream: FirebaseFirestore.instance
