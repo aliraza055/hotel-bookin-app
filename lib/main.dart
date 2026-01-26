@@ -1,5 +1,4 @@
 import 'package:doctor_app/Models/item_model.dart';
-import 'package:doctor_app/pages/bottom_navigaton.dart';
 import 'package:doctor_app/pages/pageExample.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
