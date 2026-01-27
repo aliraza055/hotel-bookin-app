@@ -1,3 +1,5 @@
+import 'package:doctor_app/Models/itemPractice.dart';
+import 'package:doctor_app/Models/item_model.dart';
 import 'package:flutter/material.dart';
 
 class PracticeUI extends StatefulWidget {
@@ -9,6 +11,13 @@ class PracticeUI extends StatefulWidget {
 
 class _PracticeUIState extends State<PracticeUI> {
   int x = 0;
+  List<PraticeModel> categoryItems = [];
+  @override
+  void initState() {
+    categoryItems = PraticeModel.categoryData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,35 +30,59 @@ class _PracticeUIState extends State<PracticeUI> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            "Hello Word" + x.toString(),
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 10),
-          Center(
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  x++;
-                });
-              },
-              child: Container(
-                height: 60,
-                width: 60,
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-
-                  borderRadius: BorderRadius.circular(40),
-                ),
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text("Send Data"),
+          Expanded(
+            child: ListView.builder(
+              itemCount: categoryItems.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  color: Colors.amber,
+                  margin: EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                  child: Column(
+                    children: [
+                      Text(categoryItems[index].name),
+                      SizedBox(height: 10),
+                      ClipRRect(
+                        child: Image.network(
+                          height: 150,
+                          fit: BoxFit.cover,
+                          categoryItems[index].img,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
+                );
+              },
             ),
           ),
+          // Text(
+          //   "Hello Word" + x.toString(),
+          //   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          // ),
+          // SizedBox(height: 10),
+          // Center(
+          //   child: GestureDetector(
+          //     onTap: () {
+          //       setState(() {
+          //         x++;
+          //       });
+          //     },
+          //     child: Container(
+          //       height: 60,
+          //       width: 60,
+          //       decoration: BoxDecoration(
+          //         color: Colors.blue,
+
+          //         borderRadius: BorderRadius.circular(40),
+          //       ),
+          //       child: Center(
+          //         child: Padding(
+          //           padding: EdgeInsets.all(10),
+          //           child: Text("Send Data"),
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
