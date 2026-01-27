@@ -22,14 +22,16 @@ class _PracticeUIState extends State<PracticeUI> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "Hello Word",
+            "Hello Word" + x.toString(),
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
-
+          SizedBox(height: 10),
           Center(
             child: GestureDetector(
               onTap: () {
-                print(x++);
+                setState(() {
+                  x++;
+                });
               },
               child: Container(
                 height: 60,
