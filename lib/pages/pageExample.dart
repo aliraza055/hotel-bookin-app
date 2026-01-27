@@ -8,6 +8,7 @@ class PracticeUI extends StatefulWidget {
 }
 
 class _PracticeUIState extends State<PracticeUI> {
+  int x = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,15 +21,31 @@ class _PracticeUIState extends State<PracticeUI> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Text(
+            "Hello Word",
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          ),
+
           Center(
-            child: Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                color: Colors.blueGrey,
-                borderRadius: BorderRadius.circular(40),
+            child: GestureDetector(
+              onTap: () {
+                print(x++);
+              },
+              child: Container(
+                height: 60,
+                width: 60,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text("Send Data"),
+                  ),
+                ),
               ),
-              child: Center(child: Text("Send Data")),
             ),
           ),
         ],
