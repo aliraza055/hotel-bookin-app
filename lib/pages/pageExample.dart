@@ -27,8 +27,6 @@ class _PracticeUIState extends State<PracticeUI> {
         title: Text("Practice Ui"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             child: ListView.builder(
